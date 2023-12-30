@@ -1,0 +1,36 @@
+{
+  "name": "adesgym-backend",
+  "version": "1.0.0",
+  "description": "proyecto full stack m.e.r.n. con c.r.u.d. y login desde cero",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GustavoEAybar/ADESGYM-BACKEND.git"
+  },
+  "keywords": [
+    "backend",
+    "crud",
+    "node",
+    "js",
+    "vanilla",
+    "jacascript",
+    "express",
+    "babel",
+    "nodemo",
+    "morgan",
+    "mongoose",
+    "dotenvi",
+    "validator",
+    "bcryptjs",
+    "jsonwebtoken"
+  ],
+  "author": "Aybar, Gustavo Exequiel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GustavoEAybar/ADESGYM-BACKEND/issues"
+  },
+  "homepage": "https://github.com/GustavoEAybar/ADESGYM-BACKEND#readme"
+}
