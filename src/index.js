@@ -13,12 +13,12 @@ app.listen(app.get('port'), () => {
     console.log("===============================");
 });
 
-// app.use(morgan("dev"));
-// app.use(cors());
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.static(path.join(__dirname, "/index.html")));
+app.use(morgan("dev"));
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "/index.html")));
 
-// app.use("/adesgym-v1/", services);
-// app.use();
-// app.use();
+app.use("/adesgym-v1/services", services);
+app.use("/adesgym-v1/products", services);
+app.use("/adesgym-v1/users", services);
