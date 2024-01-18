@@ -18,7 +18,3 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "/index.html")));
-
-app.use("/adesgym-v1/services", services);
-app.use("/adesgym-v1/products", services);
-app.use("/adesgym-v1/users", services);
