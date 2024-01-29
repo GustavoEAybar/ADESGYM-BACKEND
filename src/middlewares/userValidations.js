@@ -2,10 +2,21 @@ import validationsResults from "../helpers/validationsResults";
 
 const loginValidate = [
     console.log("desde loginValidate"),
+    check("email")
+    .notEmpty()
+    .withMessage("Email is required")
+    .isLength({ min: 12, max: 100 })
+    .withMessage("Email must be between 12 to 100 characters"),
 
-    // (req, res, next) => {
-    //     validationsResults(req,res, next);
-    // },
+    check("password")
+    .notEmpty()
+    .withMessage("Password is required")
+    .isLength({ min: 8 })
+    .withMessage("Password must have at least 8 characters"),
+
+    (req, res, next) => {
+        validationsResults(req,res, next);
+    },
 
 ];
 const registerValidate = [

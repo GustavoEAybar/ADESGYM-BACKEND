@@ -22,7 +22,7 @@ users
 .get(showUsers);
 users
 .route("/login")
-// .post([loginValidate], login)
+.post([loginValidate], login)
 users
 .route("/register")
 // .post([registerValidate], register)
