@@ -4,6 +4,7 @@ import cors from "cors";
 import path from "path";
 import "./database";
 import "dotenv/config";
+import users from "./routes/users.routes";
 
 const app = express();
 app.set ('port', process.env.PORT || 4001);
@@ -13,12 +14,10 @@ app.listen(app.get('port'), () => {
     console.log("===============================");
 });
 
-// app.use(morgan("dev"));
-// app.use(cors());
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.static(path.join(__dirname, "/index.html")));
+app.use(morgan("dev"));
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "/index.html")));
 
-// app.use("/adesgym-v1/", services);
-// app.use();
-// app.use();
+app.use("/ades-v1/users", users);
