@@ -20,16 +20,19 @@ const users = Router();
 users
 .route("/")
 .get(showUsers);
+
 users
 .route("/login")
-.post([loginValidate], login)
+.post([loginValidate], login);
+
 users
 .route("/register")
-// .post([registerValidate], register)
+.post([registerValidate], register);
+
 users
 .route("/:id")
 .get(getOne)
-// .put([validateJWT, userValidate], updateUser)
-// .delete([validateJWT], deleteUser);
+.put([validateJWT, userValidate], updateUser)
+.delete([validateJWT], deleteUser);
 
 export default users;

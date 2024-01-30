@@ -72,3 +72,18 @@ instagram: gustavoeaybar
 facebook: gustavoeaybar
 youtube: guexay91
 X: GustavoAyb2886
+
+[!NOTE]
+aQUI TIENES UNA NOTA ESPECIAL
+
+[!TIP]
+AQUI TIENE UN CONSEJO
+
+[!IMPORTANT]
+AQUI TIENES UN DATO IMPORTANTE
+
+[!WARNING]
+AQUI TIENES UN AVISO
+
+[!CAUTION]
+AQUI TIENES UNA ALERTA
