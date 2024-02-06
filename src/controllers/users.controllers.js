@@ -4,12 +4,10 @@ import generateJWT from "../helpers/generateJWT";
 import { STATUS } from "../constants";
 
 const showUsers = async (req, res) => {
-  console.log("desde showUsers");
-
   try {
     const userList = await User.find();
     res.status(STATUS.OK).json(userList);
-  } catch (error) {
+  } catch {
     res.status(STATUS.NOT_FOUND).json({ message: "error loading User" });
   }
 };
@@ -36,17 +34,14 @@ const login = async (req, res) => {
       uid: user._id,
       token,
     });
-  } catch (error) {
+  } catch {
     res.status(STATUS.BAD_REQUEST).json({ message: "User login in failed" });
   }
 };
 
 const register = async (req, res) => {
-  console.log("desde register");
-
   try {
     const { email, password } = req.body;
-
     const userFound = await User.findOne({ email });
     if (userFound) {
       return res
@@ -63,52 +58,43 @@ const register = async (req, res) => {
     await createUser.save();
 
     res.status(STATUS.CREATED).json({ token });
-  } catch (error) {
-    res.status(STATUS.NOT_FOUND).json({ message: "User registration failed" });
+  } catch {
+        res.status(STATUS.NOT_FOUND).json({ message: "User registration failed" });
   }
 };
 
 const getOne = async (req, res) => {
-  console.log("desde getOne");
-
   const { id } = req.params;
   try {
-    const oneUser = await User.findOne(id);
+    const oneUser = await User.findById(id);
     res.status(STATUS.OK).json(oneUser);
-  } catch (error) {
-    res
+  } catch {
+      res
       .status(STATUS.NOT_FOUND)
       .json({ message: "Error when requesting service" });
   }
 };
 
 const updateUser = async (req, res) => {
-  console.log("desde updateUser");
-
   const { id } = req.params;
-
   try {
-    const newUser = await User.findByidAndUpdate(id, req.body);
+    const newUser = await User.findByIdAndUpdate(id, req.body);
     const newPassword = await req.body.password;
     const SALT_ROUND = 10;
-    newUser.passwoed = await bcrypt.hash(newPassword, SALT_ROUND);
+    newUser.password = await bcrypt.hash(newPassword, SALT_ROUND);
     await newUser.save();
-
     res.status(STATUS.OK).json({ message: "User updated" });
-  } catch (error) {
-    res.status(STATUS.NOT_FOUND).json({ message: "Error when updating user" });
+  } catch {
+        res.status(STATUS.NOT_FOUND).json({ message: "Error when updating user" });
   }
 };
 
 const deleteUser = async (req, res) => {
-  console.log("desde deleteUser");
-
   const { id } = req.params;
-
   try {
     await User.findOneAndDelete(id);
     res.status(STATUS.OK).json({ message: "removes user" });
-  } catch (error) {
+  } catch {
     res.status(STATUS.NOT_FOUND).json({ message: "error when deleting user" });
   }
 };
